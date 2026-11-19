@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#eef0e6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Puffling" />
+  <title>Puffling</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="stage">
+    <div class="device" id="device">
+      <!-- keychain on top -->
+      <div class="split-ring"></div>
+      <div class="tag"><span id="tagName">Puffling</span></div>
+      <div class="lug"></div>
+      <div class="brand">Puffling</div>
+
+      <!-- shiny shell -->
+      <div class="gloss"></div>
+      <div class="gloss small"></div>
+
+      <!-- screen -->
+      <div class="bezel">
+        <div class="lcd" id="lcd">
+          <canvas id="screen" width="60" height="60" aria-label="Your pet"></canvas>
+          <div class="icons" id="icons" role="toolbar" aria-label="Care menu"></div>
+          <div class="panel" id="panel" hidden></div>
+          <div class="say" id="say"></div>
+          <div class="glass"></div>
+        </div>
+      </div>
+
+      <!-- three buttons: next, OK, back -->
+      <div class="buttons">
+        <button class="btn" data-btn="A" aria-label="Next" title="Next icon">
+          <span><svg viewBox="0 0 24 24"><path d="M8 5 L18 12 L8 19 Z"/></svg></span>
+        </button>
+        <button class="btn" data-btn="B" aria-label="OK" title="OK">
+          <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/></svg></span>
+        </button>
+        <button class="btn" data-btn="C" aria-label="Back" title="Back">
+          <span><svg viewBox="0 0 24 24"><path d="M16 5 L6 12 L16 19 Z"/></svg></span>
+        </button>
+      </div>
+    </div>
+
+    <section class="stats" aria-label="How your pet is doing">
+      <p class="stage-line" id="stageLine">Puffling</p>
+      <div class="stat"><span class="label">Tummy</span><div class="bar"><i id="bar-hunger"></i></div></div>
+      <div class="stat"><span class="label">Joy</span><div class="bar"><i id="bar-fun"></i></div></div>
+      <div class="stat"><span class="label">Energy</span><div class="bar"><i id="bar-energy"></i></div></div>
+      <div class="stat"><span class="label">Clean</span><div class="bar"><i id="bar-clean"></i></div></div>
+      <div class="stat wide"><span class="label">Health</span><div class="bar"><i id="bar-health"></i></div></div>
+    </section>
+
+    <p class="help">
+      <b>Next</b> picks an icon, <b>OK</b> uses it, <b>Back</b> cancels.<br />
+      You can also tap the icons. Tap the pet to say hi. Drag the toy to spin it.
+    </p>
+    <div class="links">
+      <button id="renameBtn">Rename</button>
+      <button id="resetBtn">New egg</button>
+    </div>
+  </main>
+
+  <!-- Name / start screen -->
+  <div class="sheet" id="nameSheet" hidden>
+    <div class="sheet-card">
+      <h2 id="nameTitle">A new egg appeared!</h2>
+      <p>What will you call your Puffling?</p>
+      <input id="nameInput" maxlength="10" placeholder="e.g. Toffee" autocomplete="off" />
+      <button id="nameOk">Let's go</button>
+      <button class="ghost" id="nameCancel" hidden>Cancel</button>
+    </div>
+  </div>
+
+  <!-- Goodbye screen -->
+  <div class="sheet" id="byeSheet" hidden>
+    <div class="sheet-card">
+      <h2><span id="byeName"></span> floated back to the stars</h2>
+      <p>It was too hungry, sad or sick for too long. Every Puffling teaches us something.</p>
+      <button id="byeOk">Hatch a new egg</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
